@@ -1,4 +1,7 @@
 module.exports = {
+  aliases: {
+    styled: '@xstyled/styled-components',
+  },
   namedExports: {
     react: [
       'useState',
@@ -13,5 +16,6 @@ module.exports = {
       'createContext',
       'memo',
     ],
+    '@xstyled/styled-components': ['x', 'ThemeProvider', 'Preflight'],
   },
 }
