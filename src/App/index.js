@@ -2,7 +2,6 @@ import {
   Preflight,
   ThemeProvider,
   defaultTheme,
-  x,
 } from '@xstyled/styled-components'
 import React from 'react'
 
@@ -15,7 +14,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Preflight />
-      <x.div bg="blue-500">Hello world</x.div>
     </ThemeProvider>
   )
 }
