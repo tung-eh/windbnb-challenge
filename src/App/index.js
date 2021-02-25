@@ -6,11 +6,15 @@ import {
 } from '@xstyled/styled-components'
 import React from 'react'
 
+import SearchBar from './SearchBar'
 import logo from '../images/logo.svg'
 
 const theme = {
   ...defaultTheme,
-  // Customize theme here
+  radii: {
+    ...defaultTheme.radii,
+    xxl: '1rem',
+  },
 }
 
 function App() {
@@ -25,6 +29,7 @@ function App() {
           justifyContent="space-between"
         >
           <x.img src={logo} alt="Logo" />
+          <SearchBar />
         </x.div>
       </x.div>
     </ThemeProvider>
