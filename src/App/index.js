@@ -36,6 +36,13 @@ function App() {
           <SearchBar />
         </x.div>
         <Stays />
+        <x.div textAlign="center" fontSize="sm" color="gray-500" mt={24}>
+          created by{' '}
+          <x.span textDecoration="underline" fontWeight="bold">
+            Tung Teng
+          </x.span>{' '}
+          - devChallenges.io
+        </x.div>
       </x.div>
     </ThemeProvider>
   )
