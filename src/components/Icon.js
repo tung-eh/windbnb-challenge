@@ -1,4 +1,5 @@
 import * as MdIcons from 'react-icons/md'
+import * as FaIcons from 'react-icons/fa'
 import React from 'react'
 import styled from '@xstyled/styled-components'
 
@@ -11,8 +12,10 @@ const capitalize = (name) => {
 
 const Svg = styled.svgBox``
 
-const Icon = ({ name, ...props }) => {
-  const Component = MdIcons[`Md${capitalize(name)}`]
+const Icons = { ...MdIcons, ...FaIcons }
+
+const Icon = ({ name, prefix = 'md', ...props }) => {
+  const Component = Icons[capitalize(`${prefix}_${name}`)]
 
   return <Svg as={Component} display="inline" {...props} />
 }
