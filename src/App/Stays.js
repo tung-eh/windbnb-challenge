@@ -83,7 +83,12 @@ const Stays = () => {
           {stays.length} stays
         </x.span>
       </x.div>
-      <x.div display="grid" gridTemplateColumns={3} gap={8} rowGap={12}>
+      <x.div
+        display="grid"
+        gridTemplateColumns={{ _: 1, md: 3 }}
+        gap={8}
+        rowGap={12}
+      >
         {stays.map((stay, index) => (
           <StayItem key={index} {...stay} />
         ))}

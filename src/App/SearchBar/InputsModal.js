@@ -56,7 +56,7 @@ const InputsModal = ({ open, onClickOutside, closeSelf }) => {
             maxWidth={1280}
             fontFamily="sans"
             display="grid"
-            gridTemplateColumns="3fr 3fr 1fr"
+            gridTemplateColumns={{ _: '1fr', md: '3fr 3fr 1fr' }}
             gap={10}
             px={8}
             py={24}
@@ -85,8 +85,10 @@ const InputsModal = ({ open, onClickOutside, closeSelf }) => {
               display="flex"
               alignItems="center"
               justifyContent="center"
-              mx={2}
-              my={1}
+              alignSelf="center"
+              justifySelf="center"
+              py={4}
+              px={10}
               onClick={closeSelf}
             >
               <Icon name="search" w={5} h={5} mr={2} />
