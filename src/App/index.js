@@ -20,6 +20,10 @@ const theme = {
   fonts: {
     sans: 'Montserrat, sans-serif',
   },
+  fontSizes: {
+    ...defaultTheme.fontSizes,
+    xxs: '0.5rem',
+  },
 }
 
 function App() {
