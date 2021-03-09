@@ -1,9 +1,10 @@
 import { x } from '@xstyled/styled-components'
+import React, { forwardRef } from 'react'
 
 // Copy from https://gist.github.com/gordonbrander/2230317
 const generateId = () => '_' + Math.random().toString(36).substr(2, 9)
 
-const Input = ({ label, id, ...props }) => {
+const Input = forwardRef(({ label, id, ...props }, ref) => {
   const inputId = id || generateId()
 
   return (
@@ -29,9 +30,10 @@ const Input = ({ label, id, ...props }) => {
         pb={3}
         w="100%"
         {...props}
+        ref={ref}
       />
     </x.div>
   )
-}
+})
 
 export default Input

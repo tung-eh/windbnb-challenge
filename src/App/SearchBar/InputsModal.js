@@ -1,5 +1,6 @@
 import { x } from '@xstyled/styled-components'
 import React, { useContext, useEffect } from 'react'
+import { useForm } from 'react-hook-form'
 
 import Icon from '../../components/Icon'
 import Input from '../../components/Input'
@@ -31,6 +32,7 @@ const InputsModal = ({ open, onClickOutside, closeSelf }) => {
     guests: { adults, children },
     setGuests,
   } = useContext(SearchingContext)
+  const { register, handleSubmit } = useForm()
 
   return (
     open && (
@@ -51,7 +53,7 @@ const InputsModal = ({ open, onClickOutside, closeSelf }) => {
           justifyContent="center"
           onClick={(e) => e.stopPropagation()}
         >
-          <x.div
+          <x.form
             w="100%"
             maxWidth={1280}
             fontFamily="sans"
@@ -60,21 +62,26 @@ const InputsModal = ({ open, onClickOutside, closeSelf }) => {
             gap={10}
             px={8}
             py={24}
+            onSubmit={handleSubmit(({ location, guests }) => {
+              setLocation(location)
+              setGuests({ adults: parseInt(guests), children: 0 })
+              closeSelf()
+            })}
           >
             <Input
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
+              name="location"
+              defaultValue={location}
               label="Location"
               placeholder="Choose location"
+              ref={register}
             />
             <Input
-              value={adults + children}
-              onChange={(e) =>
-                setGuests({ adults: parseInt(e.target.value), children: 0 })
-              }
+              name="guests"
+              defaultValue={adults + children}
               type="number"
               label="Guests"
               placeholder="Add guests"
+              ref={register}
             />
             <x.button
               borderRadius="xxl"
@@ -89,12 +96,11 @@ const InputsModal = ({ open, onClickOutside, closeSelf }) => {
               justifySelf="center"
               py={4}
               px={10}
-              onClick={closeSelf}
             >
               <Icon name="search" w={5} h={5} mr={2} />
               Search
             </x.button>
-          </x.div>
+          </x.form>
         </x.div>
       </x.div>
     )
